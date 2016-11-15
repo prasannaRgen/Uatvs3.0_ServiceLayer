@@ -30,7 +30,7 @@ namespace Rgen.UAT.UATToolServiceLayer.Models
                 cmd.CommandText = "UAT.[spGetSchemaByClientAppURL]";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@ClientAppURL", SqlDbType.VarChar, 500) { Value = requested });
+                cmd.Parameters.Add(new SqlParameter("@ClientAppURL", SqlDbType.VarChar, 500) { Value = appURL });
                 cmd.Parameters.Add(new SqlParameter("@Ret_Parameter", SqlDbType.VarChar, 500) { Direction = ParameterDirection.Output });
 
                 if (cmd.Connection.State != ConnectionState.Open)
