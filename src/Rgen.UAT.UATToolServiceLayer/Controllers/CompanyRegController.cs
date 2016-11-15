@@ -32,9 +32,9 @@ namespace Rgen.UAT.UATToolServiceLayer.Controllers
             string _result = "";
             try
             {
-                string AppUrl = HttpContext.Request.Headers["appurl"];
+               // string AppUrl = HttpContext.Request.Headers["appurl"];
                 string SchemaName = "";
-                if (!string.IsNullOrEmpty(AppUrl))
+                /*if (!string.IsNullOrEmpty(AppUrl))
                 {
                     SchemaName = new clsUatClient(_context).GetClientSchema(AppUrl);
                 }
@@ -43,7 +43,7 @@ namespace Rgen.UAT.UATToolServiceLayer.Controllers
 
                     _result = "Invalid Appurl";
 
-                }
+                }*/
                 using (var cmd = _context.Database.GetDbConnection().CreateCommand())
                 {
 
