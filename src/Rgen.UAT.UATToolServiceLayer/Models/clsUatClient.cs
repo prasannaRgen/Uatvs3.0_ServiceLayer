@@ -21,10 +21,10 @@ namespace Rgen.UAT.UATToolServiceLayer.Models
 
         private List<dynamic> _GetSchemaName(string appURL)
         {
-            Uri uri = new Uri(appURL);
-            string requested = uri.Scheme + "://" + uri.Host + ":" + uri.Port;
+           // Uri uri = new Uri(appURL);
+           // string requested = uri.Scheme + "://" + uri.Host + ":" + uri.Port;
             List<dynamic> clientInfo = new List<dynamic>();
-            appURL = appURL.Substring(0, appURL.LastIndexOf('/'));
+           // appURL = appURL.Substring(0, appURL.LastIndexOf('/'));
             using (var cmd = _context.Database.GetDbConnection().CreateCommand())
             {
                 cmd.CommandText = "UAT.[spGetSchemaByClientAppURL]";
