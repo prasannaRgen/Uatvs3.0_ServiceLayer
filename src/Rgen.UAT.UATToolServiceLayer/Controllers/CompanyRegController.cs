@@ -70,7 +70,7 @@ namespace Rgen.UAT.UATToolServiceLayer.Controllers
 
                     int result = cmd.ExecuteNonQuery();
                     string _retValue = Convert.ToString(cmd.Parameters["@Ret_Parameter"].Value);
-                    if (result > 0)
+                    if (result != 0)
                     {
                         if (!string.IsNullOrEmpty(_retValue))
                         {
