@@ -193,6 +193,9 @@ namespace Rgen.UAT.UATToolServiceLayer.Controllers
                 {
                     _roles = _roles.Remove(_roles.LastIndexOf(","));
                 }
+                
+                int _seq = 0;
+                int.TryParse(testStep.testStepSequence, out _seq);
                 //List<TestStep> dt = generateTestStepTable(testStep);
                 using (var cmd = _context.Database.GetDbConnection().CreateCommand())
                 {
@@ -201,7 +204,7 @@ namespace Rgen.UAT.UATToolServiceLayer.Controllers
                     cmd.Parameters.Add(new SqlParameter("@TestStepActionName", SqlDbType.VarChar) { Value = testStep.testStepName });
                     cmd.Parameters.Add(new SqlParameter("@TestCaseId", SqlDbType.Int) { Value = Convert.ToInt32(testStep.testCaseId) });
                     cmd.Parameters.Add(new SqlParameter("@ExpectedResult", SqlDbType.VarChar) { Value = testStep.expectedResult });
-                    cmd.Parameters.Add(new SqlParameter("@TestStepSequence", SqlDbType.Int) { Value = Convert.ToInt32(testStep.testStepSequence) });
+                    cmd.Parameters.Add(new SqlParameter("@TestStepSequence", SqlDbType.Int) { Value = Convert.ToInt32(_seq) });
                     cmd.Parameters.Add(new SqlParameter("@RoleArray", SqlDbType.VarChar) { Value = _roles });
                     cmd.Parameters.Add(new SqlParameter("@ER_Attachment_URL", SqlDbType.VarChar) { Value = testStep.erAttachmentURL });
                     cmd.Parameters.Add(new SqlParameter("@ER_Attachment_Name", SqlDbType.VarChar) { Value = testStep.erAttachmentName });
